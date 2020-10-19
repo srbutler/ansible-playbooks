@@ -1,0 +1,38 @@
+---
+# set up RPMFusion and any COPR repos needed
+
+- name: Add RPMFusion GPG key
+  become: true
+  rpm_key:
+    state: present
+    key: "https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_distribution_major_version }}"
+  tags:
+    - dnf
+    - rpmfusion
+
+- name: Install RPMFusion free
+  become: true
+  dnf:
+    name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
+    state: present
+  tags:
+    - dnf
+    - rpmfusion
+
+- name: Install RPMFusion non-free
+  become: true
+  dnf:
+    name: "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm"
+    state: present
+  tags:
+    - dnf
+    - rpmfusion
+
+- name: Add dawid/better_fonts COPR
+  become: true
+  command:
+    cmd: dnf copr enable -y dawid/better_fonts
+    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:dawid:better_fonts.repo
+  tags:
+    - dnf
+    - copr

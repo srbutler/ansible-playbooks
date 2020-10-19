@@ -1,0 +1,140 @@
+---
+# Flatpak packages
+
+# flatpaks:
+#   - com.calibre_ebook.calibre
+#   - com.github.tchx84.Flatseal
+#   - com.spotify.Client
+#   - com.transmissionbt.Transmission
+#   - com.valvesoftware.Steam
+#   - net.ankiweb.Anki
+#   - org.fedoraproject.MediaWriter
+#   - org.gimp.GIMP
+#   - org.gnome.Geary
+#   - org.gnome.Lollypop
+#   - org.inkscape.Inkscape
+#   - org.kde.krita
+#   - org.kde.okular
+#   - org.libreoffice.LibreOffice
+#   - org.videolan.VLC
+#   - org.zealdocs.Zeal
+#   - org.zotero.Zotero
+#   - us.zoom.Zoom
+
+- name: Flatpak - Enable Flathub repository
+  become: yes
+  command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  tags:
+    - flatpak
+
+- name: Install com.calibre_ebook.calibre (Flatpak)
+  flatpak:
+    name: com.calibre_ebook.calibre
+    method: system
+  tags:
+    - flatpak
+
+- name: Install com.github.tchx84.Flatseal (Flatpak)
+  flatpak:
+    name: com.github.tchx84.Flatseal
+    method: system
+  tags:
+    - flatpak
+
+- name: Install com.spotify.Client (Flatpak)
+  flatpak:
+    name: com.spotify.Client
+    method: system
+  tags:
+    - flatpak
+
+- name: Install com.transmissionbt.Transmission (Flatpak)
+  flatpak:
+    name: com.transmissionbt.Transmission
+    method: system
+  tags:
+    - flatpak
+
+- name: Install com.valvesoftware.Steam (Flatpak)
+  flatpak:
+    name: com.valvesoftware.Steam
+    method: system
+  tags:
+    - flatpak
+
+- name: Install net.ankiweb.Anki (Flatpak)
+  flatpak:
+    name: net.ankiweb.Anki
+    method: system
+  tags:
+    - flatpak
+
+- name: Install org.fedoraproject.MediaWriter (Flatpak)
+  flatpak:
+    name: org.fedoraproject.MediaWriter
+    method: system
+  tags:
+    - flatpak
+
+- name: Install org.gimp.GIMP (Flatpak)
+  flatpak:
+    name: org.gimp.GIMP
+    method: system
+  tags:
+    - flatpak
+
+- name: Install org.gnome.Geary (Flatpak)
+  flatpak:
+    name: org.gnome.Geary
+    method: system
+  tags:
+    - flatpak
+
+- name: Install org.gnome.Lollypop (Flatpak)
+  flatpak:
+    name: org.gnome.Lollypop
+    method: system
+  tags:
+    - flatpak
+
+- name: Install org.inkscape.Inkscape (Flatpak)
+  flatpak:
+    name: org.inkscape.Inkscape
+    method: system
+  tags:
+    - flatpak
+
+- name: Install org.kde.okular (Flatpak)
+  flatpak:
+    name: org.kde.okular
+    method: system
+  tags:
+    - flatpak
+
+- name: Install org.libreoffice.LibreOffice (Flatpak)
+  flatpak:
+    name: org.libreoffice.LibreOffice
+    method: system
+  tags:
+    - flatpak
+
+- name: Install org.videolan.VLC (Flatpak)
+  flatpak:
+    name: org.videolan.VLC
+    method: system
+  tags:
+    - flatpak
+
+- name: Install org.zealdocs.Zeal (Flatpak)
+  flatpak:
+    name: org.zealdocs.Zeal
+    method: system
+  tags:
+    - flatpak
+
+- name: Install us.zoom.Zoom (Flatpak)
+  flatpak:
+    name: us.zoom.Zoom
+    method: system
+  tags:
+    - flatpak

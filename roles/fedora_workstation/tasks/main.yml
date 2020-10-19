@@ -1,0 +1,16 @@
+---
+
+- name: Set up repositories
+  include: repos.yml
+
+- name: Install base packages
+  include: packages.yml
+
+- name: Install Flatpaks
+  include: flatpak.yml
+
+- name: Install/configure fonts
+  include: fonts.yml
+
+- name: Configure GNOME
+  include: gnome.yml

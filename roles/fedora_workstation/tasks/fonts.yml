@@ -1,0 +1,85 @@
+---
+
+- name: Install better font defaults
+  become: true
+  dnf:
+    name:
+      - fontconfig-enhanced-defaults
+      - fontconfig-font-replacements
+    state: latest
+  tags:
+    - dnf
+    - fonts
+
+- name: Install general fonts
+  become: yes
+  dnf:
+    name: "{{ font_packages }}"
+    state: latest
+  tags:
+    - dnf
+    - fonts
+
+- name: Install Noto fonts
+  become: yes
+  dnf:
+    name: "{{ noto_fonts }}"
+    state: latest
+  tags:
+    - dnf
+    - fonts
+
+- name: Install CJK aliases font config
+  become: true
+  copy:
+    src: "{{ ansible_env.HOME }}/.config/fontconfig/30-cjk-aliases.conf"
+    dest: /usr/share/fontconfig/conf.avail/30-cjk-aliases.conf
+    owner: root
+    group: root
+  tags:
+    - fonts
+
+- name: Link CJK aliases font config
+  become: true
+  file:
+    src: /usr/share/fontconfig/conf.avail/30-cjk-aliases.conf
+    dest: /etc/fonts/conf.d/30-cjk-aliases.conf
+    owner: root
+    group: root
+    state: link
+  tags:
+    - fonts
+
+- name: Remove default non-Latin fallback config
+  become: true
+  file:
+    path: /etc/fonts/conf.d/65-nonlatin.conf
+    state: absent
+  tags:
+    - fonts
+
+- name: Install custom non-Latin fallback font config
+  become: true
+  copy:
+    src: "{{ ansible_env.HOME }}/.config/fontconfig/65-nonlatin-noto.conf"
+    dest: /usr/share/fontconfig/conf.avail/65-nonlatin-noto.conf
+    owner: root
+    group: root
+  tags:
+    - fonts
+
+- name: Link non-Latin fallback font config
+  become: true
+  file:
+    src: /usr/share/fontconfig/conf.avail/65-nonlatin-noto.conf
+    dest: /etc/fonts/conf.d/65-nonlatin-noto.conf
+    owner: root
+    group: root
+    state: link
+  tags:
+    - fonts
+
+- name: Refresh font cache
+  command: fc-cache -fv
+  tags:
+    - fonts

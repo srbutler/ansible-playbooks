@@ -1,0 +1,11 @@
+---
+
+- name: Enable Powertop
+  become: true
+  systemd:
+    name: powertop.service
+    enabled: true
+    daemon_reload: true
+  tags:
+    - power
+    - systemd

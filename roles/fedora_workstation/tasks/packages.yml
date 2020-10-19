@@ -1,0 +1,16 @@
+
+- name: Update packages
+  become: true
+  dnf:
+    name: "*"
+    state: latest
+  tags: dnf
+
+- name: Install base packages
+  become: yes
+  dnf:
+    name: "{{ base_packages }}"
+    state: present
+  tags:
+    - dnf
+

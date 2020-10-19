@@ -1,0 +1,26 @@
+---
+- hosts: localhost
+
+  vars:
+    hostname: 'srb-laptop'
+
+  tasks:
+    - name: Creates download directory
+      file:
+        path: temp
+        state: directory
+
+    - include: tasks/system.yml
+    - include: tasks/repo.yml
+    - include: tasks/packages.yml
+    - include: tasks/flatpak.yml
+    - include: tasks/gnome.yml
+    - include: tasks/vscodium.yml
+    - include: tasks/docker.yml
+    - include: tasks/jetbrain-toolbox.yml
+    - include: tasks/zsh.yml
+
+    - name: Delete download directory
+      file:
+        path: temp
+        state: absent
