@@ -1,1 +1,167 @@
 ---
+# extensions
+- name: Install shell extensions
+  become: yes
+  dnf:
+    name:
+      - gnome-shell-extension-dash-to-dock
+      - gnome-shell-extension-openweather
+      - gnome-shell-extension-user-theme
+      - gnome-shell-extension-workspace-indicator
+    state: present
+  tags:
+    - dnf
+    - gnome
+
+- name: Remove unneeded extensions
+  become: yes
+  dnf:
+    name:
+      - gnome-shell-extension-apps-menu
+      - gnome-shell-extension-background-logo
+      - gnome-shell-extension-horizontal-workspaces
+      - gnome-shell-extension-places-menu
+    state: absent
+  tags:
+    - dnf
+    - gnome
+
+# keyboard layouts
+- name: Configure available keyboard layouts in Gnome
+  community.general.dconf:
+    key: "/org/gnome/desktop/input-sources/sources"
+    value: "[('xkb', 'us'), ('ibus', 'libpinyin')]"
+    state: present
+  tags:
+    - gnome
+
+- name: Configure available keyboard layouts in Gnome (mru)
+  community.general.dconf:
+    key: "/org/gnome/desktop/input-sources/mru-sources"
+    value: "[('xkb', 'us'), ('ibus', 'libpinyin')]"
+    state: present
+  tags:
+    - gnome
+
+- name: Set Caps Lock as Ctrl
+  community.general.dconf:
+    key: "/org/gnome/desktop/input-sources/xkb-options"
+    value: "['caps:ctrl_modifier', 'lv3:ralt_switch']"
+    state: present
+  tags:
+    - gnome
+
+# interface
+- name: Set clock format to 12h
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/clock-format"
+    value: "'12h'"
+    state: present
+  tags:
+    - gnome
+
+- name: Set interface font
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/font-name"
+    value: "'Noto Sans Display 11'"
+    state: present
+  tags:
+    - gnome
+
+- name: Set document font
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/document-font-name"
+    value: "'Noto Serif 11'"
+    state: present
+  tags:
+    - gnome
+
+- name: Set monospace font
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/monospace-font-name"
+    value: "'Cousine Regular 11'"
+    state: present
+  tags:
+    - gnome
+
+- name: Set titlebar display font
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/preferences/titlebar-font"
+    value: "'Noto Sans Display 11'"
+    state: present
+  tags:
+    - gnome
+
+- name: Enable anti-aliasing
+  community.general.dconf:
+    key: "/org/gnome/settings-daemon/plugins/xsettings/antialiasing"
+    value: "'rbga'"
+    state: present
+  tags:
+    - gnome
+
+- name: Enable slight hinting
+  community.general.dconf:
+    key: "/org/gnome/settings-daemon/plugins/xsettings/hinting"
+    value: "'slight'"
+    state: present
+  tags:
+    - gnome
+
+- name: Set IM module to ibus
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/gtk-im-module"
+    value: "'ibus'"
+    state: present
+  tags:
+    - gnome
+
+- name: Disable Activites hot corner
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/enable-hot-corners"
+    value: false
+    state: present
+  tags:
+    - gnome
+
+# keybindings
+- name: Set keybinding for 'close'
+  community.general.dconf:
+    key: "org/gnome/desktop/wm/keybindings/close"
+    value: ['<Shift><Super>q']
+    state: present
+  tags:
+    - gnome
+
+- name: Set keybinding for 'switch input source'
+  community.general.dconf:
+    key: "org/gnome/desktop/wm/keybindings/switch-input-source"
+    value: ['<Super>i']
+    state: present
+  tags:
+    - gnome
+
+- name: Set keybinding for 'switch input source backward'
+  community.general.dconf:
+    key: "org/gnome/desktop/wm/keybindings/switch-input-source-backward"
+    value: ['<Shift><Super>i']
+    state: present
+  tags:
+    - gnome
+
+- name: Set keybinding for 'toggle fullscreen'
+  community.general.dconf:
+    key: "org/gnome/desktop/wm/keybindings/toggle-fullscreen"
+    value: ['F11']
+    state: present
+  tags:
+    - gnome
+
+# misc
+- name: Set font for Characters app
+  community.general.dconf:
+    key: "org/gnome/Characters/font"
+    value: "'Noto Sans 50'"
+    state: present
+  tags:
+    - gnome

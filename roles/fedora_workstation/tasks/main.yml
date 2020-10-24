@@ -1,5 +1,11 @@
 ---
 
+- name: Create repos directory
+  file:
+    path: "{{ ansible_env.HOME }}/repos"
+    state: directory
+    mode: '0755'
+
 - name: Set up repositories
   include: repos.yml
 
@@ -8,6 +14,12 @@
 
 - name: Install Flatpaks
   include: flatpak.yml
+
+- name: Install dotfiles and zsh
+  include: dotfiles.yml
+
+- name: Install and configure Emacs
+  include: emacs.yml
 
 - name: Install/configure fonts
   include: fonts.yml

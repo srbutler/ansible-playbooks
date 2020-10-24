@@ -1,0 +1,100 @@
+
+- name: Install Emacs and related packages
+  become: yes
+  dnf:
+    name:
+      - emacs
+      - black
+      - ccls
+      - ShellCheck
+    state: present
+  tags:
+    - dnf
+    - emacs
+
+- name: Clone Emacs configuration
+  git:
+    repo: https://www.github.com/srbutler/emacs.d
+    dest: "{{ ansible_env.HOME }}/repos/emacs.d"
+    clone: yes
+    version: linux
+  tags:
+    - emacs
+    - git
+
+- name: Link emacs config to ~/.emacs.d
+  file:
+    src: "{{ ansible_env.HOME }}/repos/emacs.d"
+    dest: "{{ ansible_env.HOME }}/.emacs.d"
+    owner: srbutler
+    group: srbutler
+    state: link
+  tags:
+    - emacs
+    - git
+
+- name: Clone Emacs Cask
+  git:
+    repo: https://github.com/cask/cask
+    dest: "{{ ansible_env.HOME }}/repos/cask"
+    clone: yes
+  tags:
+    - emacs
+    - git
+
+- name: Link Cask executable
+  file:
+    src: "{{ ansible_env.HOME }}/repos/cask/bin/cask"
+    dest: "{{ ansible_env.HOME }}/.local/bin/cask"
+    owner: srbutler
+    group: srbutler
+    state: link
+  tags:
+    - emacs
+    - git
+
+- name: Install Emacs packages with Cask
+  command:
+    cmd: cask install --verbose
+    chdir: "{{ ansible_env.HOME }}/.emacs.d"
+    creates: "{{ ansible_env.HOME }}/.emacs.d/.cask/"
+
+# - name: Install Bash LSP
+#   community.general.npm:
+#     name: bash-language-server
+#     global: yes
+#   tags:
+#     - npm
+#     - emacs
+
+# - name: Install Docker LSP
+#   community.general.npm:
+#     name: dockerfile-language-server-nodejs
+#     global: yes
+#   tags:
+#     - npm
+#     - emacs
+
+# - name: Install Docker LSP
+#   community.general.npm:
+#     name: javascript-typescript-langserver
+#     global: yes
+#   tags:
+#     - npm
+#     - emacs
+
+# - name: Install Docker LSP
+#   community.general.npm:
+#     name: vscode-css-languageserver-bin
+#     global: yes
+#   tags:
+#     - npm
+#     - emacs
+
+# - name: Install Docker LSP
+#   community.general.npm:
+#     name: vscode-html-languageserver-bin
+#     global: yes
+#   tags:
+#     - npm
+#     - emacs

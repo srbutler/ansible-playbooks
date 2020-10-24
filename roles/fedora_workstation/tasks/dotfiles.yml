@@ -1,0 +1,124 @@
+---
+
+- name: Clone dotfiles repo
+  git:
+    repo: https://www.github.com/srbutler/dotfiles
+    dest: "{{ ansible_env.HOME }}/repos/dotfiles"
+    recursive: yes
+    clone: yes
+    version: linux
+  tags:
+    - dotfiles
+    - git
+
+- name: Link profile to home directory
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/profile"
+    dest: "{{ ansible_env.HOME }}/.profile"
+    state: link
+  tags:
+    - dotfiles
+
+- name: Link dir_colors to home directory
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/dir_colors"
+    dest: "{{ ansible_env.HOME }}/.dir_colors"
+    state: link
+  tags:
+    - dotfiles
+
+- name: Link zsh folder to config
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/zsh"
+    dest: "{{ ansible_env.HOME }}/.config/zsh"
+    state: link
+  tags:
+    - dotfiles
+
+- name: Link zshrc to home directory
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/zsh/zshrc"
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+    state: link
+  tags:
+    - dotfiles
+
+- name: Link zshenv to home directory
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/zsh/zshenv"
+    dest: "{{ ansible_env.HOME }}/.zshenv"
+    state: link
+  tags:
+    - dotfiles
+
+- name: Link zprofile to home directory
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/zsh/zprofile"
+    dest: "{{ ansible_env.HOME }}/.zprofile"
+    state: link
+  tags:
+    - dotfiles
+
+- name: Link git to config directory
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/git"
+    dest: "{{ ansible_env.HOME }}/.config/git"
+    state: link
+  tags:
+    - dotfiles
+
+- name: Link kitty to config directory
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/kitty"
+    dest: "{{ ansible_env.HOME }}/.config/kitty"
+    state: link
+  tags:
+    - dotfiles
+
+- name: Link npm config to config directory
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/npm"
+    dest: "{{ ansible_env.HOME }}/.config/npm"
+    state: link
+  tags:
+    - dotfiles
+
+- name: Link python config to config directory
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/python"
+    dest: "{{ ansible_env.HOME }}/.config/python"
+    state: link
+  tags:
+    - dotfiles
+
+- name: Link tmux to config directory
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/tmux"
+    dest: "{{ ansible_env.HOME }}/.config/tmux"
+    state: link
+  tags:
+    - dotfiles
+
+- name: Link vim to config directory
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/vim"
+    dest: "{{ ansible_env.HOME }}/.config/vim"
+    state: link
+  tags:
+    - dotfiles
+
+- name: Link wgetrc to config directory
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/wgetrc"
+    dest: "{{ ansible_env.HOME }}/.config/wgetrc"
+    state: link
+  tags:
+    - dotfiles
+
+- name: Link zathura to config directory
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/zathura"
+    dest: "{{ ansible_env.HOME }}/.config/zathura"
+    state: link
+  tags:
+    - dotfiles

@@ -58,6 +58,35 @@
   tags:
     - fonts
 
+- name: Install custom Latin font config
+  become: true
+  copy:
+    src: "{{ ansible_env.HOME }}/.config/fontconfig/60-latin-noto.conf"
+    dest: /usr/share/fontconfig/conf.avail/60-latin-noto.conf
+    owner: root
+    group: root
+  tags:
+    - fonts
+
+- name: Link custom Latin font config
+  become: true
+  file:
+    src: /usr/share/fontconfig/conf.avail/60-latin-noto.conf
+    dest: /etc/fonts/conf.d/60-latin-noto.conf
+    owner: root
+    group: root
+    state: link
+  tags:
+    - fonts
+
+- name: Remove default Latin config
+  become: true
+  file:
+    path: /etc/fonts/conf.d/60-latin.conf
+    state: absent
+  tags:
+    - fonts
+
 - name: Install custom non-Latin fallback font config
   become: true
   copy:

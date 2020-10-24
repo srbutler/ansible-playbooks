@@ -1,17 +1,15 @@
 ---
 # variables and packages
 
+hostname: 'srb-thinkpad'
+
 base_packages:
-  - "@firefox"
-  - ShellCheck
   - bat
-  - black
   - buildah
-  - ccls
   - celluloid
   - chromium
   - dconf-editor
-  - emacs
+  - dropbox
   - encfs
   - evince-nautilus
   - fd-find
@@ -26,8 +24,6 @@ base_packages:
   - kitty
   - make
   - moreutils
-  - most
-  - mpv
   - nano
   - nautilus-dropbox
   - neofetch
@@ -42,14 +38,19 @@ base_packages:
   - powertop
   - python3
   - ripgrep
+  - rsync
+  - seahorse
   - simple-scan
+  - snapper
   - solaar
   - sushi
+  - tilix
   - timeshift
   - tmux
   - toolbox
   - trash-cli
   - vim-enhanced
+  - wl-clipboard
   - zathura
   - zathura-cb
   - zathura-djvu
@@ -57,18 +58,17 @@ base_packages:
   - zsh
 
 font_packages:
-  - "@fonts"
   - adobe-source-code-pro-fonts
   - adobe-source-sans-pro-fonts
   - adobe-source-serif-pro-fonts
   - cjkuni-ukai-fonts
   - cjkuni-uming-fonts
   - fira-code-fonts
-  - google-croscore-arimo-fonts
-  - google-croscore-cousine-fonts
-  - google-croscore-tinos-fonts
-  - google-crosextra-caladea-fonts
-  - google-crosextra-carlito-fonts
+  - google-arimo-fonts
+  - google-carlito-fonts
+  - google-cousine-fonts
+  - google-tinos-fonts
+  - ht-caladea-fonts
   - ipa-ex-mincho-fonts
   - ipa-mincho-fonts
   - ipa-pmincho-fonts
@@ -93,6 +93,11 @@ font_packages:
   - sil-gentium-fonts
   - sil-gentium-plus-compact-fonts
   - sil-gentium-plus-fonts
+  - sil-mingzat-fonts
+  - sil-nuosu-fonts
+  - sil-padauk-fonts
+  - sil-abyssinica-fonts
+  - thai-scalable-waree-fonts
 
 noto_fonts:
   - google-noto-sans-fonts
@@ -100,6 +105,7 @@ noto_fonts:
   - google-roboto-fonts
   - google-noto-cjk-fonts
   - google-noto-emoji-fonts
+  - google-noto-emoji-color-fonts
   - google-noto-music-fonts
   - google-noto-naskh-arabic-fonts
   - google-noto-naskh-arabic-ui-fonts
@@ -161,6 +167,7 @@ noto_fonts:
   - google-noto-sans-grantha-fonts
   - google-noto-sans-gujarati-fonts
   - google-noto-sans-gujarati-ui-fonts
+  - google-noto-sans-gurmukhi-fonts
   - google-noto-sans-gurmukhi-ui-fonts
   - google-noto-sans-hanunoo-fonts
   - google-noto-sans-hatran-fonts

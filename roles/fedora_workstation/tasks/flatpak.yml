@@ -1,25 +1,5 @@
 ---
-# Flatpak packages
-
-# flatpaks:
-#   - com.calibre_ebook.calibre
-#   - com.github.tchx84.Flatseal
-#   - com.spotify.Client
-#   - com.transmissionbt.Transmission
-#   - com.valvesoftware.Steam
-#   - net.ankiweb.Anki
-#   - org.fedoraproject.MediaWriter
-#   - org.gimp.GIMP
-#   - org.gnome.Geary
-#   - org.gnome.Lollypop
-#   - org.inkscape.Inkscape
-#   - org.kde.krita
-#   - org.kde.okular
-#   - org.libreoffice.LibreOffice
-#   - org.videolan.VLC
-#   - org.zealdocs.Zeal
-#   - org.zotero.Zotero
-#   - us.zoom.Zoom
+# Install Flatpak applications, default to Flathub repository
 
 - name: Flatpak - Enable Flathub repository
   become: yes
@@ -114,6 +94,13 @@
 - name: Install org.libreoffice.LibreOffice (Flatpak)
   flatpak:
     name: org.libreoffice.LibreOffice
+    method: system
+  tags:
+    - flatpak
+
+- name: Install org.gnome.seahorse.Application (Flatpak)
+  flatpak:
+    name: org.gnome.seahorse.Application
     method: system
   tags:
     - flatpak
