@@ -1,5 +1,6 @@
 ---
-# extensions
+# extensions and dconf configuration
+
 - name: Install shell extensions
   become: yes
   dnf:
@@ -119,7 +120,7 @@
 - name: Disable Activites hot corner
   community.general.dconf:
     key: "/org/gnome/desktop/interface/enable-hot-corners"
-    value: false
+    value: "false"
     state: present
   tags:
     - gnome
@@ -127,32 +128,32 @@
 # keybindings
 - name: Set keybinding for 'close'
   community.general.dconf:
-    key: "org/gnome/desktop/wm/keybindings/close"
-    value: ['<Shift><Super>q']
+    key: "/org/gnome/desktop/wm/keybindings/close"
+    value: "['<Shift><Super>q']"
     state: present
   tags:
     - gnome
 
 - name: Set keybinding for 'switch input source'
   community.general.dconf:
-    key: "org/gnome/desktop/wm/keybindings/switch-input-source"
-    value: ['<Super>i']
+    key: "/org/gnome/desktop/wm/keybindings/switch-input-source"
+    value: "['<Super>i']"
     state: present
   tags:
     - gnome
 
 - name: Set keybinding for 'switch input source backward'
   community.general.dconf:
-    key: "org/gnome/desktop/wm/keybindings/switch-input-source-backward"
-    value: ['<Shift><Super>i']
+    key: "/org/gnome/desktop/wm/keybindings/switch-input-source-backward"
+    value: "['<Shift><Super>i']"
     state: present
   tags:
     - gnome
 
 - name: Set keybinding for 'toggle fullscreen'
   community.general.dconf:
-    key: "org/gnome/desktop/wm/keybindings/toggle-fullscreen"
-    value: ['F11']
+    key: "/org/gnome/desktop/wm/keybindings/toggle-fullscreen"
+    value: "['F11']"
     state: present
   tags:
     - gnome
@@ -160,7 +161,7 @@
 # misc
 - name: Set font for Characters app
   community.general.dconf:
-    key: "org/gnome/Characters/font"
+    key: "/org/gnome/Characters/font"
     value: "'Noto Sans 50'"
     state: present
   tags:

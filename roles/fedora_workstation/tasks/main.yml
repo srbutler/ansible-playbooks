@@ -15,7 +15,7 @@
 - name: Install Flatpaks
   include: flatpak.yml
 
-- name: Install dotfiles and zsh
+- name: Install dotfiles
   include: dotfiles.yml
 
 - name: Install and configure Emacs

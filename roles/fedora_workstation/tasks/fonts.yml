@@ -32,7 +32,7 @@
 - name: Install CJK aliases font config
   become: true
   copy:
-    src: "{{ ansible_env.HOME }}/.config/fontconfig/30-cjk-aliases.conf"
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/fontconfig/30-cjk-aliases.conf"
     dest: /usr/share/fontconfig/conf.avail/30-cjk-aliases.conf
     owner: root
     group: root
@@ -61,7 +61,7 @@
 - name: Install custom Latin font config
   become: true
   copy:
-    src: "{{ ansible_env.HOME }}/.config/fontconfig/60-latin-noto.conf"
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/fontconfig/60-latin-noto.conf"
     dest: /usr/share/fontconfig/conf.avail/60-latin-noto.conf
     owner: root
     group: root
@@ -90,7 +90,7 @@
 - name: Install custom non-Latin fallback font config
   become: true
   copy:
-    src: "{{ ansible_env.HOME }}/.config/fontconfig/65-nonlatin-noto.conf"
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/fontconfig/65-nonlatin-noto.conf"
     dest: /usr/share/fontconfig/conf.avail/65-nonlatin-noto.conf
     owner: root
     group: root

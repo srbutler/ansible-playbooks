@@ -14,3 +14,11 @@
   tags:
     - dnf
 
+- name: Install RPMFusion multimedia group
+  become: yes
+  dnf:
+    name: "@Multimedia"
+    exclude: PackageKit-gstreamer-plugin
+  tags:
+    - dnf
+    - rpmfusion

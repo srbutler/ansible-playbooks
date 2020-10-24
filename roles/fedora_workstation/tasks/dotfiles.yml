@@ -6,7 +6,8 @@
     dest: "{{ ansible_env.HOME }}/repos/dotfiles"
     recursive: yes
     clone: yes
-    version: linux
+    version: gnome
+    update: no
   tags:
     - dotfiles
     - git
