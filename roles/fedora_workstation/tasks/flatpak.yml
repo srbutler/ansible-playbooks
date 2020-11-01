@@ -7,119 +7,133 @@
   tags:
     - flatpak
 
-- name: Install com.calibre_ebook.calibre (Flatpak)
-  flatpak:
-    name: com.calibre_ebook.calibre
-    method: system
-  tags:
-    - flatpak
-
-- name: Install com.github.tchx84.Flatseal (Flatpak)
-  flatpak:
-    name: com.github.tchx84.Flatseal
-    method: system
-  tags:
-    - flatpak
-
-- name: Install com.spotify.Client (Flatpak)
-  flatpak:
-    name: com.spotify.Client
-    method: system
-  tags:
-    - flatpak
-
-- name: Install com.transmissionbt.Transmission (Flatpak)
-  flatpak:
-    name: com.transmissionbt.Transmission
-    method: system
-  tags:
-    - flatpak
-
-- name: Install com.valvesoftware.Steam (Flatpak)
-  flatpak:
-    name: com.valvesoftware.Steam
-    method: system
-  tags:
-    - flatpak
-
-- name: Install net.ankiweb.Anki (Flatpak)
+- name: Install Anki (Flatpak)
   flatpak:
     name: net.ankiweb.Anki
     method: system
   tags:
     - flatpak
 
-- name: Install org.fedoraproject.MediaWriter (Flatpak)
+- name: Install Calibre (Flatpak)
+  flatpak:
+    name: com.calibre_ebook.calibre
+    method: system
+  tags:
+    - flatpak
+
+- name: Install Celluloid (Flatpak)
+  flatpak:
+    name: io.github.celluloid_player.Celluloid
+    method: system
+  tags:
+    - flatpak
+
+- name: Install Dconf-Editor (Flatpak)
+  flatpak:
+    name: ca.desrt.dconf-editor
+    method: system
+  tags:
+    - flatpak
+
+- name: Install Fedora Media Writer (Flatpak)
   flatpak:
     name: org.fedoraproject.MediaWriter
     method: system
   tags:
     - flatpak
 
-- name: Install org.gimp.GIMP (Flatpak)
+- name: Install Flatseal (Flatpak)
+  flatpak:
+    name: com.github.tchx84.Flatseal
+    method: system
+  tags:
+    - flatpak
+
+- name: Install GIMP (Flatpak)
   flatpak:
     name: org.gimp.GIMP
     method: system
   tags:
     - flatpak
 
-- name: Install org.gnome.Geary (Flatpak)
+- name: Install Geary (Flatpak)
   flatpak:
     name: org.gnome.Geary
     method: system
   tags:
     - flatpak
 
-- name: Install org.gnome.Lollypop (Flatpak)
+- name: Install Lollypop (Flatpak)
   flatpak:
     name: org.gnome.Lollypop
     method: system
   tags:
     - flatpak
 
-- name: Install org.inkscape.Inkscape (Flatpak)
+- name: Install Inkscape (Flatpak)
   flatpak:
     name: org.inkscape.Inkscape
     method: system
   tags:
     - flatpak
 
-- name: Install org.kde.okular (Flatpak)
+- name: Install Okular (Flatpak)
   flatpak:
     name: org.kde.okular
     method: system
   tags:
     - flatpak
 
-- name: Install org.libreoffice.LibreOffice (Flatpak)
+- name: Install LibreOffice (Flatpak)
   flatpak:
     name: org.libreoffice.LibreOffice
     method: system
   tags:
     - flatpak
 
-- name: Install org.gnome.seahorse.Application (Flatpak)
+- name: Install Seahorse (Flatpak)
   flatpak:
     name: org.gnome.seahorse.Application
     method: system
   tags:
+    - flatpakp
+
+- name: Install Spotify (Flatpak)
+  flatpak:
+    name: com.spotify.Client
+    method: system
+  tags:
     - flatpak
 
-- name: Install org.videolan.VLC (Flatpak)
+- name: Install Transmission (Flatpak)
+  flatpak:
+    name: com.transmissionbt.Transmission
+    method: system
+  tags:
+    - flatpak
+
+- name: Install Steam (Flatpak)
+  flatpak:
+    name: com.valvesoftware.Steam
+    method: system
+  tags:
+    - flatpak
+
+- name: Install VLC (Flatpak)
   flatpak:
     name: org.videolan.VLC
     method: system
   tags:
     - flatpak
 
-- name: Install org.zealdocs.Zeal (Flatpak)
+- name: Install Zeal (Flatpak)
   flatpak:
     name: org.zealdocs.Zeal
     method: system
   tags:
     - flatpak
 
-- name: Install us.zoom.Zoom (Flatpak)
+- name: Install Zoom (Flatpak)
   flatpak:
     name: us.zoom.Zoom
     method: system

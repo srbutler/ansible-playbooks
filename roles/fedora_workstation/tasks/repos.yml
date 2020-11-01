@@ -1,6 +1,15 @@
 ---
 # set up RPMFusion and any COPR repos needed
 
+- name: Add RPMFusion GPG key
+  become: true
+  rpm_key:
+    state: present
+    key: "https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_date_time.year }}"
+  tags:
+    - repo
+    - rpmfusion
+
 - name: Install RPMFusion free
   become: true
   dnf:
