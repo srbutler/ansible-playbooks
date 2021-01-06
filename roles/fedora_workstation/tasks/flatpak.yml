@@ -28,9 +28,23 @@
   tags:
     - flatpak
 
+- name: Install Chromium (Flatpak)
+  flatpak:
+    name: org.chromium.Chromium
+    method: system
+  tags:
+    - flatpak
+
 - name: Install Dconf-Editor (Flatpak)
   flatpak:
     name: ca.desrt.dconf-editor
+    method: system
+  tags:
+    - flatpak
+
+- name: Install EasyTAG (Flatpak)
+  flatpak:
+    name: org.gnome.EasyTAG
     method: system
   tags:
     - flatpak
@@ -63,13 +77,6 @@
   tags:
     - flatpak
 
-- name: Install Lollypop (Flatpak)
-  flatpak:
-    name: org.gnome.Lollypop
-    method: system
-  tags:
-    - flatpak
-
 - name: Install Inkscape (Flatpak)
   flatpak:
     name: org.inkscape.Inkscape
@@ -77,16 +84,23 @@
   tags:
     - flatpak
 
-- name: Install Okular (Flatpak)
+- name: Install LibreOffice (Flatpak)
   flatpak:
-    name: org.kde.okular
+    name: org.libreoffice.LibreOffice
     method: system
   tags:
     - flatpak
 
-- name: Install LibreOffice (Flatpak)
+- name: Install Lollypop (Flatpak)
   flatpak:
-    name: org.libreoffice.LibreOffice
+    name: org.gnome.Lollypop
+    method: system
+  tags:
+    - flatpak
+
+- name: Install Okular (Flatpak)
+  flatpak:
+    name: org.kde.okular
     method: system
   tags:
     - flatpak
@@ -105,16 +119,16 @@
   tags:
     - flatpak
 
-- name: Install Transmission (Flatpak)
+- name: Install Steam (Flatpak)
   flatpak:
-    name: com.transmissionbt.Transmission
+    name: com.valvesoftware.Steam
     method: system
   tags:
     - flatpak
 
-- name: Install Steam (Flatpak)
+- name: Install Transmission (Flatpak)
   flatpak:
-    name: com.valvesoftware.Steam
+    name: com.transmissionbt.Transmission
     method: system
   tags:
     - flatpak

@@ -28,6 +28,7 @@
   tags:
     - dnf
     - fonts
+    - slow
 
 - name: Install CJK aliases font config
   become: true
@@ -112,3 +113,30 @@
   command: fc-cache -fv
   tags:
     - fonts
+
+- name: Create local fonts directory
+  file:
+    path: "{{ ansible_env.XDG_DATA_HOME }}/fonts"
+    state: directory
+    mode: '0755'
+  tags:
+    - fonts
+    - fonts-custom
+
+# - name: Download Iosevka fonts
+#   get_url:
+#     url: "{{ item }}"
+#     dest: "{{ ansible_env.XDG_DATA_HOME }}/fonts/"
+#   loop: "{{ iosevka_font_urls }}"
+#   tags:
+#     - fonts
+#     - fonts-custom
+
+# - name: Unarchive Iosevka fonts
+#   unarchive:
+#     src: "{{ item }}"
+#     dest: "{{ ansible_env.XDG_DATA_HOME }}/fonts/"
+#   with_fileglob: "$XDG_DATA_HOME/fonts/*.zip'"
+#   tags:
+#     - fonts
+#     - fonts-custom

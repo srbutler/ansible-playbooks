@@ -14,7 +14,7 @@
 
 - name: Link profile to home directory
   file:
-    src: "{{ ansible_env.HOME }}/repos/dotfiles/profile"
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/shell/profile"
     dest: "{{ ansible_env.HOME }}/.profile"
     state: link
   tags:
@@ -22,40 +22,24 @@
 
 - name: Link dir_colors to home directory
   file:
-    src: "{{ ansible_env.HOME }}/repos/dotfiles/dir_colors"
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/shell/dir_colors"
     dest: "{{ ansible_env.HOME }}/.dir_colors"
     state: link
   tags:
     - dotfiles
 
-- name: Link zsh folder to config
+- name: Link abcde.conf to home directory
   file:
-    src: "{{ ansible_env.HOME }}/repos/dotfiles/zsh"
-    dest: "{{ ansible_env.HOME }}/.config/zsh"
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/abcde/abcde.conf"
+    dest: "{{ ansible_env.HOME }}/.abcde.conf"
     state: link
   tags:
     - dotfiles
 
-- name: Link zshrc to home directory
+- name: Link bat to config directory
   file:
-    src: "{{ ansible_env.HOME }}/repos/dotfiles/zsh/zshrc"
-    dest: "{{ ansible_env.HOME }}/.zshrc"
-    state: link
-  tags:
-    - dotfiles
-
-- name: Link zshenv to home directory
-  file:
-    src: "{{ ansible_env.HOME }}/repos/dotfiles/zsh/zshenv"
-    dest: "{{ ansible_env.HOME }}/.zshenv"
-    state: link
-  tags:
-    - dotfiles
-
-- name: Link zprofile to home directory
-  file:
-    src: "{{ ansible_env.HOME }}/repos/dotfiles/zsh/zprofile"
-    dest: "{{ ansible_env.HOME }}/.zprofile"
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/bat"
+    dest: "{{ ansible_env.HOME }}/.config/bat"
     state: link
   tags:
     - dotfiles
@@ -92,6 +76,22 @@
   tags:
     - dotfiles
 
+- name: Link shell files to config directory
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/shell"
+    dest: "{{ ansible_env.HOME }}/.config/shell"
+    state: link
+  tags:
+    - dotfiles
+
+- name: Link default bashrc to home directory
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/shell/bashrc"
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    state: link
+  tags:
+    - dotfiles
+
 - name: Link tmux to config directory
   file:
     src: "{{ ansible_env.HOME }}/repos/dotfiles/tmux"
@@ -116,10 +116,34 @@
   tags:
     - dotfiles
 
-- name: Link zathura to config directory
+- name: Link zsh folder to config
   file:
-    src: "{{ ansible_env.HOME }}/repos/dotfiles/zathura"
-    dest: "{{ ansible_env.HOME }}/.config/zathura"
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/zsh"
+    dest: "{{ ansible_env.HOME }}/.config/zsh"
+    state: link
+  tags:
+    - dotfiles
+
+- name: Link zshrc to home directory
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/zsh/zshrc"
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+    state: link
+  tags:
+    - dotfiles
+
+- name: Link zshenv to home directory
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/zsh/zshenv"
+    dest: "{{ ansible_env.HOME }}/.zshenv"
+    state: link
+  tags:
+    - dotfiles
+
+- name: Link zprofile to home directory
+  file:
+    src: "{{ ansible_env.HOME }}/repos/dotfiles/zsh/zprofile"
+    dest: "{{ ansible_env.HOME }}/.zprofile"
     state: link
   tags:
     - dotfiles

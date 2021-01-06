@@ -1,0 +1,26 @@
+---
+# set up podman, toolbox, and any containers that need to be built
+
+- name: Build toolbox dev (Fedora) image
+  shell:
+    cmd: |
+      if ! podman image inspect dev > /dev/null 2>&1; then
+          /usr/bin/make dev
+      fi
+    chdir: "{{ ansible_env.HOME }}/repos/dotfiles/containers"
+  tags:
+    - podman
+    - toolbox
+    - slow
+
+- name: Build toolbox dev (Ubuntu) image
+  shell:
+    cmd: |
+      if ! podman image inspect ubuntu20-dev > /dev/null 2>&1; then
+          /usr/bin/make ubuntu
+      fi
+    chdir: "{{ ansible_env.HOME }}/repos/dotfiles/containers"
+  tags:
+    - podman
+    - toolbox
+    - slow

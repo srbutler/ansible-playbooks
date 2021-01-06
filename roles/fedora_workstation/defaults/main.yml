@@ -6,9 +6,6 @@ hostname: 'srb-thinkpad'
 base_packages:
   - bat
   - buildah
-  - celluloid
-  - chromium
-  - dconf-editor
   - dropbox
   - encfs
   - evince-nautilus
@@ -26,10 +23,7 @@ base_packages:
   - moreutils
   - nano
   - nautilus-dropbox
-  - neofetch
   - paman
-  - pandoc
-  - pandoc-citeproc
   - parallel
   - pavucontrol
   - podman
@@ -37,10 +31,13 @@ base_packages:
   - podman-plugins
   - powertop
   - python3
+  - python3-dnf-plugin-leaves
+  - python3-dnf-plugin-snapper
+  - python3-dnf-plugin-system-upgrade
+  - python3-dnf-plugin-tracer
   - python3-psutil
   - ripgrep
   - rsync
-  - seahorse
   - simple-scan
   - snapper
   - solaar
@@ -52,10 +49,6 @@ base_packages:
   - trash-cli
   - vim-enhanced
   - wl-clipboard
-  - zathura
-  - zathura-cb
-  - zathura-djvu
-  - zathura-pdf-poppler
   - zsh
 
 font_packages:
@@ -99,6 +92,15 @@ font_packages:
   - sil-padauk-fonts
   - sil-abyssinica-fonts
   - thai-scalable-waree-fonts
+
+iosevka_font_urls:
+  - https://github.com/be5invis/Iosevka/releases/download/v3.7.0/pkg-iosevka-3.7.0.zip
+  - https://github.com/be5invis/Iosevka/releases/download/v3.7.0/pkg-iosevka-slab-3.7.0.zip
+  - https://github.com/be5invis/Iosevka/releases/download/v3.7.0/pkg-iosevka-curly-3.7.0.zip
+  - https://github.com/be5invis/Iosevka/releases/download/v3.7.0/pkg-iosevka-curly-slab-3.7.0.zip
+  - https://github.com/be5invis/Iosevka/releases/download/v3.7.0/pkg-iosevka-aile-3.7.0.zip
+  - https://github.com/be5invis/Iosevka/releases/download/v3.7.0/pkg-iosevka-etoile-3.7.0.zip
+  - https://github.com/be5invis/Iosevka/releases/download/v3.7.0/pkg-iosevka-sparkle-3.7.0.zip
 
 noto_fonts:
   - google-noto-sans-fonts

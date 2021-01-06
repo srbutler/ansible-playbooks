@@ -1,12 +1,10 @@
+---
 
 - name: Install Emacs and related packages
   become: yes
   dnf:
     name:
       - emacs
-      - black
-      - ccls
-      - ShellCheck
     state: present
   tags:
     - dnf
@@ -25,7 +23,7 @@
 - name: Link emacs config to ~/.emacs.d
   file:
     src: "{{ ansible_env.HOME }}/repos/emacs.d"
-    dest: "{{ ansible_env.HOME }}/.emacs.d"
+    dest: "{{ ansible_env.HOME }}/.config/emacs"
     owner: srbutler
     group: srbutler
     state: link
@@ -56,45 +54,8 @@
 - name: Install Emacs packages with Cask
   command:
     cmd: cask install --verbose
-    chdir: "{{ ansible_env.HOME }}/.emacs.d"
-    creates: "{{ ansible_env.HOME }}/.emacs.d/.cask/"
-
-# - name: Install Bash LSP
-#   community.general.npm:
-#     name: bash-language-server
-#     global: yes
-#   tags:
-#     - npm
-#     - emacs
-
-# - name: Install Docker LSP
-#   community.general.npm:
-#     name: dockerfile-language-server-nodejs
-#     global: yes
-#   tags:
-#     - npm
-#     - emacs
-
-# - name: Install Docker LSP
-#   community.general.npm:
-#     name: javascript-typescript-langserver
-#     global: yes
-#   tags:
-#     - npm
-#     - emacs
-
-# - name: Install Docker LSP
-#   community.general.npm:
-#     name: vscode-css-languageserver-bin
-#     global: yes
-#   tags:
-#     - npm
-#     - emacs
-
-# - name: Install Docker LSP
-#   community.general.npm:
-#     name: vscode-html-languageserver-bin
-#     global: yes
-#   tags:
-#     - npm
-#     - emacs
+    chdir: "{{ ansible_env.HOME }}/.config/emacs"
+    creates: "{{ ansible_env.HOME }}/.config/emacs/.cask"
+  tags:
+    - emacs
+    - git

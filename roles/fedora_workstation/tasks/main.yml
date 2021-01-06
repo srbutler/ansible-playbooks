@@ -21,7 +21,7 @@
 - name: Install and configure Emacs
   include: emacs.yml
 
-- name: Install/configure fonts
+- name: Install and configure fonts
   include: fonts.yml
 
 - name: Configure GNOME
