@@ -8,17 +8,15 @@ base_packages:
   - buildah
   - dropbox
   - encfs
+  - evince-djvu
   - evince-nautilus
+  - evince-dvi
   - fd-find
-  - firefox
   - foliate
   - fzf
   - git
   - git-credential-libsecret
-  - gnome-tweaks
-  - guake
   - htop
-  - kitty
   - make
   - moreutils
   - nano
@@ -36,20 +34,49 @@ base_packages:
   - python3-dnf-plugin-system-upgrade
   - python3-dnf-plugin-tracer
   - python3-psutil
+  - p7zip-plugins
   - ripgrep
   - rsync
-  - simple-scan
   - snapper
+  - tmux
+  - toolbox
+  - trash-cli
+  - unrar
+  - vim-enhanced
+  - wl-clipboard
+  - zsh
+
+compression_packages:
+  - bzip2
+  - gzip
+  - p7zip
+  - p7zip-plugins
+  - unrar
+  - unzip
+  - xz
+  - zip
+
+wine_packages:
+  - wine
+  - winetricks
+
+gui_packages:
+  - firefox
+  - gnome-tweaks
+  - guake
+  - simple-scan
   - solaar
   - sushi
   - tilix
   - timeshift
-  - tmux
-  - toolbox
-  - trash-cli
-  - vim-enhanced
-  - wl-clipboard
-  - zsh
+
+audio_encoding_packages:
+  - abcde
+  - cdparanoia
+  - flac
+  - id3v2
+  - lame
+  - python3-eyed3
 
 font_packages:
   - adobe-source-code-pro-fonts

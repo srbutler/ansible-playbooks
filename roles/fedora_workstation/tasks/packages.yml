@@ -14,6 +14,33 @@
   tags:
     - dnf
 
+- name: Install GUI packages
+  become: yes
+  dnf:
+    name: "{{ gui_packages }}"
+    state: present
+  tags:
+    - dnf
+    - gui
+
+- name: Install wine packages
+  become: yes
+  dnf:
+    name: "{{ wine_packages }}"
+    state: present
+  tags:
+    - dnf
+    - wine
+
+- name: Install audio encoding packages
+  become: yes
+  dnf:
+    name: "{{ audio_encoding_packages }}"
+    state: present
+  tags:
+    - dnf
+    - audio
+
 - name: Install RPMFusion multimedia group
   become: yes
   dnf:
