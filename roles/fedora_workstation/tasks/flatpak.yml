@@ -63,6 +63,13 @@
   tags:
     - flatpak
 
+- name: Install FontManager (Flatpak)
+  flatpak:
+    name: org.gnome.FontManager
+    method: system
+  tags:
+    - flatpak
+
 - name: Install GIMP (Flatpak)
   flatpak:
     name: org.gimp.GIMP

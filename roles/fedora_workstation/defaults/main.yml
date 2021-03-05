@@ -41,7 +41,6 @@ base_packages:
   - tmux
   - toolbox
   - trash-cli
-  - unrar
   - vim-enhanced
   - wl-clipboard
   - zsh
